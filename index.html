@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cordova Device Ready Example</title>
+ 
+    <script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+    <script type="text/javascript" charset="utf-8">
+ 
+    // Call onDeviceReady when Cordova is loaded.
+    //
+    // At this point, the document has loaded but cordova-2.2.0.js has not.
+    // When Cordova is loaded and talking with the native device,
+    // it will call the event `deviceready`.
+   
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+ 
+    // Cordova is loaded and it is now safe to make calls Cordova methods
+    //
+function onDeviceReady() {
+        // Now safe to use the Cordova API
+               
+		function onConfirm(buttonIndex){
+			alert('Has seleccionado el boton' + buttonIndex);
+			if (buttonIndex ==1){
+					alert("")
+				
+				}
+			
+			}
+		
+                 alert("Estamos listos!!!!");
+								 document.addEventListener("menubutton", onMenuButton, false);
+								 document.addEventListener("offline", isOffline, false);
+								 document.addEventListener("online", isOnline, false);
+								 //window.location = "http://www.kmmx.mx/"		
+								 
+var myDiv = document.getElementById('props');
+
+myDiv.innerHTML = 'Device Name: ' + device.name + '<br />' + 'Device PhoneGap: ' + device.phonegap + '<br />' + 'Device Platform: ' + device.platform + '<br />' + 'Deevice UUID: ' + device.uuid + '<br />' + 'Device Version: ' + device.version + '<br />';
+
+								 
+}
+		function onMenuButton(){
+			alert("has presionado el boton de menu!!!");
+			}
+		function isOffline(){
+			alert("No se tiene conexion a internet");
+			}
+		function isOnline(){
+			alert("Ya estamos conectados a Internet!");
+			}
+ 		function popup(){
+			alert("Hola mundo");
+			}
+		function ciclo(){
+				document.write("El ciclo ha comenzado");
+				for(i=0;i<9;i++){
+					document.write("El contador i = " + i);
+					document.write("<br>");
+					
+					}
+					document.write("El ciclo a terminado");
+			}
+function showConfirm(){
+			navigator.notification.confirm(
+				'Game Over!',
+				onConfirm,
+				'Game Over',
+				'Restar, Exit'
+			
+				);
+			}	
+			function playBeep(){
+				navigator.notification.beep(3);
+				}
+			function vibrate(){
+				navigator.notification.vibrate(2000);
+				
+				}	
+    </script>
+  </head>
+  <body onload="onLoad()">
+  
+  <div id="props">aqui</div>
+  	<input type="button" onClick="popup()" value="popup">
+    <input type="button" onClick="ciclo()" value="ciclo">
+    <p><a href="#" onClick="showConfirm(); return flase;">showConfirm</a></p>
+    <p><a href="#" onClick="playBeep(); return false;">beep</a></p>
+    <p><a href="#" onClick="vibrate(); return false;">Vibrate</a></p>
+    
+  </body>
+</html>
